@@ -87,7 +87,7 @@ Destignation <br>
 </div>
  
     <div id="date">
-        <input type="date" name="date">
+        <input type="date" name="date" id="date_">
     </div>
     <div id="heure">
 <%
@@ -115,3 +115,14 @@ Destignation <br>
 </body>
 </html>
 <%@ include file='footer.jsp' %>
+<script>
+    
+  let today = new Date();
+  let minDate = today.toISOString().split("T")[0];
+  let max = new Date();
+  max.setDate(today.getDate() +5);
+  let maxDate = max.toISOString().split("T")[0];
+  let input = document.getElementById("date_");
+  input.setAttribute("min",minDate);
+  input.setAttribute("max",maxDate);
+</script>

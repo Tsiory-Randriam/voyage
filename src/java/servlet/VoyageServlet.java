@@ -39,14 +39,9 @@ public class VoyageServlet extends HttpServlet {
             String date_voyage = request.getParameter("date");
             String heure_voyage = request.getParameter("heure");
             String destignation = request.getParameter("destignation");
-            String frais_voyage = request.getParameter("frais_voyage");
             TestePlaceDao voyage = new TestePlaceDao();
-            DateDao date_ajouter = new DateDao();
-            DestignationDao destign = new DestignationDao();
             
                 try {
-                    destign.InsertionDestignation(destignation, frais_voyage);
-                    date_ajouter.creationDate(date_voyage);
                     String statut = "None";
                     for(int i=1;i<=24;i++){
                         if (i == 1){
@@ -59,7 +54,7 @@ public class VoyageServlet extends HttpServlet {
                         }
                         
                     }
-                    request.getRequestDispatcher("/index.jsp").forward(request, response);
+                    request.getRequestDispatcher("/Dashboard.jsp").forward(request, response);
                 } catch (SQLException ex) {
                     System.getLogger(VoyageServlet.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
                 }

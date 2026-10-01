@@ -22,7 +22,6 @@
 }
 
 body {
-    background-color: var(--bg-light);
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     color: var(--text-dark);
     margin: 0;
@@ -51,7 +50,6 @@ body {
 
 /* --- CARTE BUS --- */
 .bus-card {
-    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 30px;

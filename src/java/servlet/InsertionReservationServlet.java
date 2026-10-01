@@ -44,14 +44,17 @@ public class InsertionReservationServlet extends HttpServlet {
             int dernierDate = reservation.DernierDateReserver();
             int dernierHeure = reservation.DernierHeureReserver();
             int idClient = client.DernierReservation();
+            int idDestignation = reservation.DernieridDestignation();
+            String destignation = reservation.dernierDestignation(idDestignation);
+            String frais = reservation.selectFrais(destignation);
             String username = client.nomClient(idClient);
             String email = client.emailClient(idClient);
             String contact = client.contactClient(idClient);
             String numeroPlace = reservation.PlaceClient(placeReserver);
             String dateReservation = reservation.DateClient(dernierDate);
             String heureReservation = reservation.HeureClient(dernierHeure);
-            reservation.InsertionReservation(username, email, contact, numeroPlace, heureReservation, numeroPlace);
-            mis_ajour_place.updatePlace(numeroPlace, heureReservation, dateReservation);
+            reservation.InsertionReservation(username, email, contact, numeroPlace, heureReservation, numeroPlace, destignation);
+            mis_ajour_place.updatePlace(numeroPlace, heureReservation, dateReservation,destignation);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         } catch (SQLException ex) {
             System.getLogger(Main.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);

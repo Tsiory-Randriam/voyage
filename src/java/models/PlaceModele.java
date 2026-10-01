@@ -13,6 +13,13 @@ public class PlaceModele {
     private int numero_place;
     private String statut;
     private String date_voyage;
+    private String destignation;
+    	public String getDestignation() {
+		return destignation;
+	}
+	public void setDestignation(String destignation) {
+		this.destignation = destignation;
+	}
 	public String getDate_voyage() {
 		return date_voyage;
 	}

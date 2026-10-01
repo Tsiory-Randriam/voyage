@@ -39,38 +39,11 @@
 
               <!-- Lien Accueil -->
               <li class="nav-item">
-                <a class="nav-link" href="home.php?id=accueil">
-                  <i class="fa-solid fa-house" style="color:#8e44ad;width:20px;text-align:center;"></i>
-                  <span>Accueil</span>
+                <a class="nav-link" href="LoginServlet">
+                  <i class="fa fa-lock" style="color:#8e44ad;width:20px;text-align:center;"></i>
+                  <span>Parameter</span>
                 </a>
               </li>
-
-              <!-- Lien R�servation (actif par d�faut) -->
-              <li class="nav-item">
-                <a class="nav-link active" href="home.php?id=formulaireReservation">
-                  <i class="fa-solid fa-calendar-plus" style="color:#3498db;width:20px;text-align:center;"></i>
-                  <span>R�servation</span>
-                </a>
-              </li>
-
-              <!-- Lien Contact -->
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">
-                  <i class="fa-solid fa-envelope" style="color:#2ecc71;width:20px;text-align:center;"></i>
-                  <span>Contact</span>
-                </a>
-              </li>
-
-              <!-- Lien Discussion -->
-              <li class="nav-item">
-                <a class="nav-link" href="#discussion">
-                  <i class="fa-solid fa-comments" style="color:#e67e22;width:20px;text-align:center;"></i>
-                  <span>Discussion</span>
-                </a>
-              </li>
-
-              <!-- ===== S�PARATEUR ===== -->
-              <li style="width:1px;height:30px;background:#e0e0e0;margin:0 8px;display:none;" class="d-lg-block"></li>
 
               <!-- ===== TOGGLE DARK MODE ===== -->
               <li class="nav-item">

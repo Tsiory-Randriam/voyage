@@ -44,6 +44,30 @@
         <servlet-name>TestePlaceServlet</servlet-name>
         <servlet-class>servlet.TestePlaceServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerificationAdminServlet</servlet-name>
+        <servlet-class>servlet.VerificationAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FormulaireDescriptionServlet</servlet-name>
+        <servlet-class>servlet.FormulaireDescriptionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InsertionDestignationServlet</servlet-name>
+        <servlet-class>servlet.InsertionDestignationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FormulairePlaceServlet</servlet-name>
+        <servlet-class>servlet.FormulairePlaceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeconnexionServlet</servlet-name>
+        <servlet-class>servlet.DeconnexionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PlaceServlet</servlet-name>
         <url-pattern>/PlaceServlet</url-pattern>
@@ -87,6 +111,30 @@
     <servlet-mapping>
         <servlet-name>TestePlaceServlet</servlet-name>
         <url-pattern>/TestePlaceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerificationAdminServlet</servlet-name>
+        <url-pattern>/VerificationAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FormulaireDescriptionServlet</servlet-name>
+        <url-pattern>/FormulaireDescriptionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InsertionDestignationServlet</servlet-name>
+        <url-pattern>/InsertionDestignationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FormulairePlaceServlet</servlet-name>
+        <url-pattern>/FormulairePlaceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeconnexionServlet</servlet-name>
+        <url-pattern>/DeconnexionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

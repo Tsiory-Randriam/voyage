@@ -5,6 +5,7 @@
 package servlet;
 
 import dao.DateDao;
+import dao.DestignationDao;
 import dao.HeureDao;
 import dao.TestePlaceDao;
 import java.io.IOException;
@@ -38,14 +39,16 @@ public class TesteInsertionPlaceServlet extends HttpServlet {
             String heure = request.getParameter("heure");
             String numero_place = request.getParameter("place");
             String date = request.getParameter("date");
-         
+            String destignation = request.getParameter("destignation");
             TestePlaceDao place = new TestePlaceDao();
             HeureDao heureReservation =new HeureDao();
             DateDao dateReservation = new DateDao();
+            DestignationDao dest = new DestignationDao();
             try {
                 place.InsertionPlaceClient(numero_place);
                 heureReservation.heureReservation(heure);
                 dateReservation.DateReservation(date);
+                dest.InsertionDestignationCient(destignation);
                 request.getRequestDispatcher("/FormulaireClient.jsp").forward(request, response);
             } catch (SQLException ex) {
                 System.getLogger(TesteInsertionPlaceServlet.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);

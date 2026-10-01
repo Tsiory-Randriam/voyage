@@ -16,12 +16,12 @@ import models.PlaceModele;
  * @author SUKUNA
  */
 public class TestePlaceDao {
-public List<PlaceModele> selectionPlace(String heure,String Date)throws SQLException
+public List<PlaceModele> selectionPlace(String heure,String Date,String destignation)throws SQLException
 	{
                 List<PlaceModele> list = new ArrayList<PlaceModele>();
 		AccesBdd  acces = new AccesBdd();
 		acces.loadDriver();
-		String sql = "SELECT Numero_place,statut,heure_voyage_place,date_voyage FROM place_final where heure_voyage_place='"+heure+"' and date_voyage='"+Date+"'";
+		String sql = "SELECT Numero_place,statut,heure_voyage_place,date_voyage FROM place_final where heure_voyage_place='"+heure+"' and date_voyage='"+Date+"' and destignationPlace='"+destignation+"'";
 		ResultSet resultat = acces.executeSelect(sql);
 		while(resultat.next())
                 {
@@ -34,10 +34,10 @@ public List<PlaceModele> selectionPlace(String heure,String Date)throws SQLExcep
                 }
              return list;
         }
-public void updatePlace(String numero_place,String heure,String date){
+public void updatePlace(String numero_place,String heure,String date,String destignation){
     AccesBdd acces = new AccesBdd();
     acces.loadDriver();
-    String sql = "UPDATE place_final SET statut='Disabled' WHERE Numero_place='"+numero_place+"' and heure_voyage_place='"+heure+"' and date_voyage='"+date+"'";
+    String sql = "UPDATE place_final SET statut='Disabled' WHERE Numero_place='"+numero_place+"' and heure_voyage_place='"+heure+"' and date_voyage='"+date+"' and destignationPlace='"+destignation+"'";
     acces.executeUpdate(sql);
 }
 public void creationPlace(int place,String statut,String heure,String date,String destignation)throws SQLException
@@ -54,11 +54,11 @@ public void creationPlace(int place,String statut,String heure,String date,Strin
 	
 	acces.closeConnection();
 }
-public int compterPlace(String date,String heure) throws SQLException
+public int compterPlace(String date,String heure,String destignation) throws SQLException
 {
     	AccesBdd acces = new AccesBdd();
 	acces.loadDriver();
-        String sql = "select * from place_final where date_voyage='"+date+"' and heure_voyage_place='"+heure+"';";
+        String sql = "select * from place_final where date_voyage='"+date+"' and heure_voyage_place='"+heure+"' and destignationPlace='"+destignation+"';";
         ResultSet resultat=acces.executeSelect(sql);
         int total = 0;
         while(resultat.next())

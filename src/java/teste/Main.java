@@ -19,6 +19,7 @@ import java.util.List;
 import models.DateModele;
 import models.HeureModele;
 import models.PlaceModele;
+import models.ReservationModele;
 import models.VoyageModele;
 
 /**
@@ -30,14 +31,14 @@ public class Main {
     {
         try {
             
-            DestignationDao destignation = new DestignationDao();
-           List<VoyageModele> listeDestignation = new ArrayList<VoyageModele>();
-            listeDestignation = destignation.selectionDestignation();
+            ReservationDao reservation = new ReservationDao();
+            List<ReservationModele> listeReservation = new ArrayList<ReservationModele>();
+            listeReservation = reservation.listeReservation();
             
             
-            for (VoyageModele voyager :listeDestignation)
+            for (ReservationModele voyager :listeReservation)
            {
-                System.out.println(voyager.getDestignation()+" "+voyager.getFrais_voyage());
+                System.out.println(voyager.getIdReservation()+" "+voyager.getUsername());
             }
         } catch (SQLException ex) {
             System.getLogger(Main.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);

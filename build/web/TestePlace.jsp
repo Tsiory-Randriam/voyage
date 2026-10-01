@@ -12,7 +12,11 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file='header.jsp' %>
-
+<style>
+    body {
+        background: var(--card);
+    }
+</style>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,8 +36,7 @@
     String destignation = request.getParameter("destignation");
     String heure = request.getParameter("heure");
     String date = request.getParameter("date");
-    
-    int total = placeDao.compterPlace(date, heure);
+    int total = placeDao.compterPlace(date, heure,destignation);
     String frais = destignerDao.selectFrais(destignation);
     int nombre_place = placeDao.compterPlaceDisponible(date, heure);
 %>
@@ -47,7 +50,7 @@
                 <p id="erreur">Pas de voyage disponible pour le moment (<%= date %> à <%= heure %>)</p>
             </div>
         <% } else { 
-            List<PlaceModele> liste = placeDao.selectionPlace(heure, date);
+            List<PlaceModele> liste = placeDao.selectionPlace(heure, date, destignation);
         %>
 
         <div class="booking-container">

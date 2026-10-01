@@ -11,7 +11,7 @@ public class UserDao {
 		boolean validation = false;
 		AccesBdd  acces = new AccesBdd();
 		acces.loadDriver();
-		String sql = "SELECT * FROM user WHERE login='"+login+"' and password='"+password+"' LIMIT 1";
+		String sql = "SELECT * FROM admin WHERE login='"+login+"' and password='"+password+"' LIMIT 1";
 		ResultSet resultat = (ResultSet) acces.executeSelect(sql);
 		while(resultat.next()) //valeur par ligne
 		{

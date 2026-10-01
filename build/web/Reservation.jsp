@@ -12,6 +12,9 @@
             int dernierDate = reservation.DernierDateReserver();
             int dernierHeure = reservation.DernierHeureReserver();
             int idClient = client.DernierReservation();
+            int idDestignation = reservation.DernieridDestignation();
+            String destignation = reservation.dernierDestignation(idDestignation);
+            String frais = reservation.selectFrais(destignation);
             String username = client.nomClient(idClient);
             String email = client.emailClient(idClient);
             String contact = client.contactClient(idClient);
@@ -46,6 +49,11 @@
                                 <label  class="form-label">Contact</label>
                                 <% out.println("<input type='tel'  class='form-control' id='exampleInputPassword1' value='"+contact+"' disabled>"); %>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Destignation</label>
+                                <% out.println("<input type='text'  class='form-control' id='exampleInputPassword1' value='"+destignation+"' disabled>"); %>
+                            </div>
+
                         <form>
                             </div>
                             <div class="card">
@@ -62,9 +70,14 @@
                                 </label>
                                 <% out.println("<input type='text'  class='form-control' id='exampleInputPassword1' value='"+numeroPlace+"' disabled>"); %>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Frais</label>
+                                <% out.println("<input type='texte'  class='form-control' id='exampleInputPassword1' value='"+frais+"' disabled>"); %>
+                                
+                            </div>
                             </div>
                             
-
+                            
                         </div>
                         
                     </section>

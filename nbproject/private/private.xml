@@ -3,17 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/examen_java/Voyage_Agences/web/TestePlace.jsp</file>
-            <file>file:/E:/examen_java/Voyage_Agences/src/java/dao/DestignationDao.java</file>
-            <file>file:/E:/examen_java/Voyage_Agences/src/java/dao/ReservationDao.java</file>
-            <file>file:/E:/examen_java/Voyage_Agences/src/java/servlet/TestePlaceServlet.java</file>
-            <file>file:/E:/examen_java/Voyage_Agences/src/java/servlet/DescriptionServlet.java</file>
-            <file>file:/E:/examen_java/Voyage_Agences/web/index.jsp</file>
-            <file>file:/E:/examen_java/Voyage_Agences/web/Apropos_voyage.jsp</file>
-            <file>file:/E:/examen_java/Voyage_Agences/web/css/place.css</file>
-            <file>file:/E:/examen_java/Voyage_Agences/src/java/servlet/TesteInsertionPlaceServlet.java</file>
-            <file>file:/E:/examen_java/Voyage_Agences/src/java/servlet/PlaceServlet.java</file>
-            <file>file:/E:/examen_java/Voyage_Agences/src/java/servlet/VoyageServlet.java</file>
+            <file>file:/E:/examen_java/Voyage_Agences/web/Dashboard.jsp</file>
         </group>
     </open-files>
 </project-private>

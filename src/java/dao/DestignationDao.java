@@ -61,4 +61,19 @@ public String selectFrais(String destignation) throws SQLException
         return frais_voyage;
 }
 
+public void InsertionDestignationCient(String destignation)throws SQLException
+{
+	AccesBdd acces = new AccesBdd();
+	acces.loadDriver();
+	String sql = "INSERT INTO destignationclient(destignation) VALUES ('"+destignation+"');";
+	try {
+		int resultat =  acces.executeInsert(sql);
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println(e.getMessage());
+	}
+	
+	acces.closeConnection();
+}
+
 }
