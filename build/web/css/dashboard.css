@@ -1,0 +1,113 @@
+/* Importation d'une police moderne depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 20px;
+}
+
+/* Container du tableau avec ombre et défilement horizontal si nécessaire */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+/* Style général de la table */
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+/* En-tête (Header) */
+.modern-table thead {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  color: #ffffff;
+}
+
+.modern-table th {
+  padding: 16px 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  border: none;
+}
+
+.modern-table th:first-child {
+  border-top-left-radius: 16px;
+}
+
+.modern-table th:last-child {
+  border-top-right-radius: 16px;
+}
+
+/* Corps du tableau (Body) */
+.modern-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+  transition: background-color 0.2s ease;
+}
+
+/* Effet au survol des lignes */
+.modern-table tbody tr:hover td {
+  background-color: #f8fafc;
+}
+
+.modern-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Alignement centré */
+.text-center {
+  text-align: center;
+}
+
+/* Texte en gras pour les identifiants */
+.fw-bold {
+  font-weight: 600;
+}
+
+/* Badges pour la date et le numéro de place */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.date-badge {
+  background-color: #e0e7ff;
+  color: #4338ca;
+}
+
+.place-badge {
+  color: #d97706;
+}
+
+/* Bouton Supprimer */
+.btn-delete {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: #fee2e2;
+  color: #dc2626;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+  transform: translateY(-1px);
+}

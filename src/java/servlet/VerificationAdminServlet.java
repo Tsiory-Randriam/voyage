@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -38,10 +39,22 @@ public class VerificationAdminServlet extends HttpServlet {
             UserDao admin = new UserDao();
             try {
                 boolean valide = admin.verifByUser(login, password);
-                if (valide == true)
-                {
-                    request.getRequestDispatcher("Dashboard.jsp").forward(request, response);
-                }
+if (valide) {
+    // 1. Création de la session
+    HttpSession session = request.getSession(true);
+    
+    // 2. Stockage correct (Ajout des guillemets)
+    session.setAttribute("admin", login);
+    
+    // 3. Empêcher la mise en cache de la redirection
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setDateHeader("Expires", 0);
+    
+    // 4. Redirection vers le tableau de bord (Ajout des guillemets pour le chemin)
+    response.sendRedirect(request.getContextPath() + "/Dashboard.jsp");
+}
+
                 else {
                     request.getRequestDispatcher("/LoginAdmin.jsp").forward(request, response);
                 }
