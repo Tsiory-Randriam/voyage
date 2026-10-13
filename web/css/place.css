@@ -1,370 +1,190 @@
-/* css/place.css - Style Moderne de Réservation de Places */
-
+/* css/place.css - Option 1 : Modern Clean Card Layout */
 :root {
-    --primary-color: #2563eb;
+    --primary: #2563eb;
     --primary-hover: #1d4ed8;
-    --bg-light: #f8fafc;
-    --card-bg: #ffffff;
-    --text-dark: #0f172a;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
-    
-    /* Couleurs Sièges */
-    --seat-dispo-bg: #ffffff;
-    --seat-dispo-border: #3b82f6;
-    --seat-dispo-text: #1d4ed8;
-    
-    --seat-selected-bg: #2563eb;
-    --seat-selected-text: #ffffff;
-    
-    --seat-occupied-bg: #cbd5e1;
-    --seat-occupied-text: #94a3b8;
+    --bg-card: #ffffff;
+    --text-color: #1e293b;
+    --border-color: #cbd5e1;
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    color: var(--text-dark);
+    background-color: #f1f5f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
     margin: 0;
-    padding: 0;
 }
 
-.booking-section {
-    max-width: 1100px;
+.booking-wrapper {
+    max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Grille principale (Bus à gauche, Panier à droite) */
-.booking-container {
+.booking-grid {
     display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 30px;
-    align-items: start;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
 }
 
-@media (max-width: 850px) {
-    .booking-container {
+@media(max-width: 992px) {
+    .booking-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* --- CARTE BUS --- */
-.bus-card {
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 30px;
-    position: relative;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-}
-
-.badge-premium {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: #eff6ff;
-    color: var(--primary-color);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid #bfdbfe;
-}
-
-.bus-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    padding-right: 110px; /* Espace pour le badge premium */
-}
-
-.time-badge {
-    font-size: 16px;
-    color: var(--text-muted);
-}
-
-.time-badge strong {
-    font-size: 22px;
-    color: var(--text-dark);
-}
-
-.price-badge {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--primary-color);
-}
-
-/* Trajet (Antsirabe -> Destination) */
-.route-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f1f5f9;
-    padding: 15px 25px;
-    border-radius: 14px;
-    margin-bottom: 15px;
-}
-
-.route-point {
-    display: flex;
-    flex-direction: column;
-}
-
-.city-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-dark);
-}
-
-.city-code {
-    font-size: 12px;
-    color: var(--text-muted);
-    font-weight: 600;
-}
-
-.route-arrow {
-    font-size: 20px;
-    color: var(--primary-color);
-}
-
-.trip-info {
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-bottom: 25px;
-}
-
-/* Légende */
-.seat-legend {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 20px;
-    background: #fafafa;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 13px;
-    color: var(--text-muted);
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 4px;
-}
-
-.dot.dispo {
-    border: 2px solid var(--seat-dispo-border);
-    background: var(--seat-dispo-bg);
-}
-
-.dot.selectionne {
-    background: var(--seat-selected-bg);
-}
-
-.dot.occupe {
-    background: var(--seat-occupied-bg);
-}
-
-/* Intérieur du Véhicule */
-.bus-interior {
-    background: #f8fafc;
-    border: 2px dashed #cbd5e1;
+.card-section {
+    background: var(--bg-card);
     border-radius: 16px;
-    padding: 20px;
-    max-width: 320px;
-    margin: 0 auto 20px auto;
+    padding: 25px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
 }
 
-.driver-row {
-    text-align: right;
-    margin-bottom: 20px;
+.card-section h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--primary);
+    border-bottom: 2px solid #f1f5f9;
     padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
-    color: var(--text-muted);
-    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+/* Grille des sièges personnalisée */
+.bus-layout {
+    background: #f8fafc;
+    border: 2px dashed #94a3b8;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.driver-indicator {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 15px;
     font-weight: 600;
 }
 
-/* Grille des sièges */
-.seats-grid {
+.place-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 10px;
     justify-items: center;
 }
 
-/* Style individuel des Sièges */
-.seat-item input[type="checkbox"] {
-    display: none; /* Cache la checkbox native */
-}
-
-.seat-box {
-    width: 48px;
-    height: 48px;
-    border: 2px solid var(--seat-dispo-border);
-    background-color: var(--seat-dispo-bg);
-    border-radius: 10px;
+.seat-item {
+    position: relative;
+    width: 40px;
+    height: 40px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    user-select: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.seat-box i {
-    font-size: 14px;
-    color: var(--seat-dispo-text);
-}
-
-.seat-number {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--seat-dispo-text);
-}
-
-/* Hover sur siège disponible */
-.seat-item:not(.occupied) .seat-box:hover {
-    transform: translateY(-2px);
-    background-color: #eff6ff;
-    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
-}
-
-/* Siège Sélectionné (Checked) */
-.seat-item input[type="checkbox"]:checked + .seat-box {
-    background-color: var(--seat-selected-bg);
-    border-color: var(--primary-hover);
-    transform: translateY(-1px);
-}
-
-.seat-item input[type="checkbox"]:checked + .seat-box i,
-.seat-item input[type="checkbox"]:checked + .seat-box .seat-number {
-    color: var(--seat-selected-text);
-}
-
-/* Siège Occupé (Disabled) */
-.seat-item.occupied .seat-box,
-.seat-item input[type="checkbox"]:disabled + .seat-box {
-    background-color: var(--seat-occupied-bg);
-    border-color: #94a3b8;
-    cursor: not-allowed;
-    box-shadow: none;
-}
-
-.seat-item.occupied .seat-box i,
-.seat-item.occupied .seat-box .seat-number {
-    color: var(--seat-occupied-text);
-}
-
-.available-info {
-    text-align: center;
-    font-size: 14px;
-    color: var(--text-muted);
-    margin-top: 15px;
-}
-
-/* --- CARTE RECAPITULATIF (PANIER) --- */
-.cart-summary-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-}
-
-.cart-summary-card h2 {
-    font-size: 20px;
-    margin: 0 0 20px 0;
-    color: var(--text-dark);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.summary-details {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.summary-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    color: var(--text-muted);
-}
-
-.summary-row strong {
-    color: var(--text-dark);
-}
-
-.divider {
-    border: 0;
-    height: 1px;
-    background: var(--border-color);
-    margin: 20px 0;
-}
-
-.summary-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-}
-
-.badge-count {
-    background: #e0f2fe;
-    color: #0369a1;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 14px;
-}
-
-/* Bouton de validation */
-.btn-submit {
+.seat-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
     width: 100%;
-    padding: 14px;
-    background-color: var(--primary-color);
+    height: 100%;
+    cursor: pointer;
+}
+
+.seat-badge {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background: #e2e8f0;
+    border: 1.5px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #334155;
+    transition: all 0.2s;
+}
+
+.seat-item input[type="checkbox"]:hover:not(:disabled) ~ .seat-badge {
+    background: #bfdbfe;
+    border-color: var(--primary);
+}
+
+.seat-item input[type="checkbox"]:checked ~ .seat-badge {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary-hover);
+}
+
+.seat-item.occupied .seat-badge, 
+.seat-item input[type="checkbox"]:disabled ~ .seat-badge {
+    background: #94a3b8;
+    color: #f1f5f9;
+    border-color: #64748b;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.seat-counter {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+/* Champs de formulaires */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn-validate {
+    width: 100%;
+    background: var(--primary);
     color: white;
     border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    transition: background 0.2s;
+    margin-top: 10px;
 }
 
-.btn-submit:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-1px);
+.btn-validate:hover {
+    background: var(--primary-hover);
 }
 
-/* Carte d'erreur */
-.error-card {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
+.alert-error {
+    text-align: center;
+    background: #fee2e2;
     color: #dc2626;
     padding: 20px;
     border-radius: 12px;
-    text-align: center;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    font-weight: bold;
 }

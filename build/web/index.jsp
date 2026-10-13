@@ -22,7 +22,7 @@
           <a href="DescriptionServlet" class="btn btn-primary btn-lg" style="border-radius:50px;padding:14px 40px;font-weight:600;background:linear-gradient(135deg,#8e44ad,#6c3483);border:none;box-shadow:0 8px 25px rgba(142,68,173,0.4);transition:0.3s;">
             Reserver maintenant <i class="fa fa-arrow-right ms-2"></i>
           </a>
-          <a href="AjoutVoyage.jsp" class="btn btn-outline-secondary btn-lg" style="border-radius:50px;padding:14px 35px;font-weight:500;border-color:#ddd;color:var(--text);">
+          <a href="#" class="btn btn-outline-secondary btn-lg" style="border-radius:50px;padding:14px 35px;font-weight:500;border-color:#ddd;color:var(--text);">
             Voir les reservations
           </a>
         </div>
@@ -30,7 +30,7 @@
         <div style="display:flex;gap:40px;margin-top:50px;border-top:1px solid #eee;padding-top:30px;">
           <div>
             <h3 style="font-size:2rem;font-weight:700;color:#8e44ad;margin:0;">50+</h3>
-            <p style="color:#7f8c8d;font-size:0.9rem;margin:0;">Ev�nements organisés</p>
+            <p style="color:#7f8c8d;font-size:0.9rem;margin:0;">Evénements organisés</p>
           </div>
           <div>
             <h3 style="font-size:2rem;font-weight:700;color:#3498db;margin:0;">98%</h3>
@@ -69,43 +69,6 @@
   </div>
 
   <!-- ===== SECTION RÉSERVATIONS ===== -->
-  <div id="reservations" style="padding:60px 0 80px 0;border-top:1px solid #eee;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;flex-wrap:wrap;gap:15px;">
-      <div>
-        <h2 style="font-weight:700;color:#2c3e50;margin:0;">
-          R�servations <span style="color:#3498db;">actuelles</span>
-        </h2>
-        <p style="color:#7f8c8d;margin:5px 0 0 0;">Liste des r�servations en cours</p>
-      </div>
-      <span class="badge" style="background:#ecf0f1;color:#2c3e50;padding:8px 18px;border-radius:30px;font-size:0.9rem;">
-        <i class="fa-regular fa-calendar me-1"></i> 
-      </span>
-    </div>
-
-    <div style="background:var(--card);border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #f0f0f0;">
-      <div style="overflow-x:auto;">
-        <table style="width:100%;border-collapse:collapse;min-width:500px;">
-          <thead>
-            <tr style="background:linear-gradient(135deg,#8e44ad,#6c3483);color:#fff;">
-              <th style="padding:18px 20px;text-align:left;font-weight:600;font-size:0.9rem;letter-spacing:0.5px;">
-                <i class="fa-regular fa-user me-2"></i> id Client
-              </th>
-              <th style="padding:18px 20px;text-align:left;font-weight:600;font-size:0.9rem;letter-spacing:0.5px;">
-                <i class="fa-regular fa-calendar-plus me-2"></i> Date d'entrée
-              </th>
-              <th style="padding:18px 20px;text-align:left;font-weight:600;font-size:0.9rem;letter-spacing:0.5px;">
-                <i class="fa-regular fa-calendar-minus me-2"></i> Date de sortie
-              </th>
-              <th style="padding:18px 20px;text-align:left;font-weight:600;font-size:0.9rem;letter-spacing:0.5px;">
-                <i class="fa-regular fa-clock me-2"></i> Statut
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-    </div>
     
     <!-- Indicateur de mise à jour -->
     <div style="text-align:right;margin-top:12px;font-size:0.8rem;color:#95a5a6;">

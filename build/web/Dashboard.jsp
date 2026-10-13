@@ -37,10 +37,10 @@
         <td><%= voyager.getContact() %></td>
         <td><span class="badge date-badge"><%= voyager.getDate_voyage() %></span></td>
         <td><%= voyager.getHeure_depart() %></td>
-        <td><span class="badge place-badge"><%= voyager.getNumero_place() %></span></td>
+        <td><span class="badge place-badge"><%= voyager.getUsername() %></span></td>
         <td><%= voyager.getDestignation_reservation() %></td>
         <td class="text-center">
-          <a href="DeleteReservation?id=<%= voyager.getIdReservation() %>" class="btn-delete" title="Supprimer">
+            <a href="${pageContext.request.contextPath}/DeleteReservation?id=<%= voyager.getIdReservation() %>" class="btn-delete" title="Supprimer">
             Supprimer
           </a>
         </td>

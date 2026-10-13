@@ -7,10 +7,13 @@ import dao.TestePlaceDao;
 import java.io.IOException;
 import static java.lang.System.out;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.ClientPlaceModele;
 import teste.Main;
 
 public class InsertionReservationServlet extends HttpServlet {
@@ -34,13 +37,18 @@ public class InsertionReservationServlet extends HttpServlet {
             String username = client.nomClient(idClient);
             String email = client.emailClient(idClient);
             String contact = client.contactClient(idClient);
-            String numeroPlace = reservation.PlaceClient(placeReserver);
             String dateReservation = reservation.DateClient(dernierDate);
             String heureReservation = reservation.HeureClient(dernierHeure);
-
             
-            reservation.InsertionReservation(username, email, contact, dateReservation, heureReservation, numeroPlace, destignation);
-            mis_ajour_place.updatePlace(numeroPlace, heureReservation, dateReservation, destignation);
+            
+            reservation.InsertionReservation(username, email, contact, dateReservation, heureReservation, destignation);
+            
+            List<ClientPlaceModele> listePlace = new ArrayList<ClientPlaceModele>();
+            listePlace = reservation.PlaceClient(username);
+            for(ClientPlaceModele MesPlace: listePlace){
+                mis_ajour_place.updatePlace(MesPlace.getClientPlace(), heureReservation, dateReservation, destignation);
+            }
+            
             
             out.println("<script>");
                 out.println("alert('Reservation sucess');");

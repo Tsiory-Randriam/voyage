@@ -14,6 +14,7 @@ public class PlaceModele {
     private String statut;
     private String date_voyage;
     private String destignation;
+    
     	public String getDestignation() {
 		return destignation;
 	}

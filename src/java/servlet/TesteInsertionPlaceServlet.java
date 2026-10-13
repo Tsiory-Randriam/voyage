@@ -4,6 +4,7 @@
  */
 package servlet;
 
+import dao.ClientDao;
 import dao.DateDao;
 import dao.DestignationDao;
 import dao.HeureDao;
@@ -11,6 +12,7 @@ import dao.TestePlaceDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +38,11 @@ public class TesteInsertionPlaceServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            String username = request.getParameter("username");
+            String contact = request.getParameter("contact");
+            String email = request.getParameter("email");
+            ClientDao client = new ClientDao();
+            
             String heure = request.getParameter("heure");
             String numero_place = request.getParameter("place");
             String date = request.getParameter("date");
@@ -44,22 +51,36 @@ public class TesteInsertionPlaceServlet extends HttpServlet {
             HeureDao heureReservation =new HeureDao();
             DateDao dateReservation = new DateDao();
             DestignationDao dest = new DestignationDao();
+            String total = request.getParameter("total");
+            Double totaux = Double.parseDouble(total);
+            ArrayList<String> place_reserver = new ArrayList();
+            
+            for(int i=1;i<=totaux;i++){
+                String k = request.getParameter(""+i+"");
+                if(k != null)
+                {
+                    out.print("place : "+k);
+                    //place.updatePlace(k, heure, date, destignation);
+                    place_reserver.add(k);
+                    try {
+                        place.InsertionPlaceClient(k,username);
+                    } catch (SQLException ex) {
+                        System.getLogger(TesteInsertionPlaceServlet.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                    }
+                }
+            }
             try {
-                place.InsertionPlaceClient(numero_place);
+                client.InsertionClient(username, email, contact);
                 heureReservation.heureReservation(heure);
                 dateReservation.DateReservation(date);
                 dest.InsertionDestignationCient(destignation);
-                request.getRequestDispatcher("/FormulaireClient.jsp").forward(request, response);
             } catch (SQLException ex) {
                 System.getLogger(TesteInsertionPlaceServlet.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
             }
             
-            //place.updatePlace(numero_place, heure, date);
-            
-            //out.println(heure);
-            //out.println(numero_place);
-            //out.println(date);
-            //request.getRequestDispatcher("/FormulaireClient.jsp").forward(request, response);
+                
+
+            request.getRequestDispatcher("/Reservation.jsp").forward(request, response);
         }
     }
 

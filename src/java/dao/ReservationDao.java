@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import models.ClientPlaceModele;
 import models.PlaceModele;
 import models.ReservationModele;
 
@@ -33,7 +34,8 @@ public int DernierPlaceReserver() throws SQLException
         }
         return id_max_place;
 }
-public String PlaceClient(int idPlace) throws SQLException
+
+public String MesPlace(int idPlace) throws SQLException
 {   
         String placeClient ="";
     	AccesBdd acces = new AccesBdd();
@@ -46,6 +48,39 @@ public String PlaceClient(int idPlace) throws SQLException
         }
         return placeClient;
 }
+public String nomClient(int idPlace) throws SQLException
+{   
+        String placeClient ="";
+    	AccesBdd acces = new AccesBdd();
+	acces.loadDriver();
+        String sql = "select usernameClient from clientplace where idClientPlace='"+idPlace+"';";
+        ResultSet resultat=acces.executeSelect(sql);
+        while(resultat.next())
+        {
+            placeClient = resultat.getString("usernameClient");
+        }
+        return placeClient;
+}
+
+public List<ClientPlaceModele> PlaceClient(String usernameClient) throws SQLException
+{   
+        List<ClientPlaceModele> listePlace =new ArrayList<ClientPlaceModele>();
+    	AccesBdd acces = new AccesBdd();
+	acces.loadDriver();
+        String sql = "select clientPlace from clientplace where usernameClient='"+usernameClient+"';";
+        ResultSet resultat=acces.executeSelect(sql);
+        while(resultat.next())
+        {
+            ClientPlaceModele place = new ClientPlaceModele();
+            place.setClientPlace(resultat.getString("clientPlace"));
+            listePlace.add(place);
+        }
+
+        return listePlace;
+}
+
+
+
 public int DernierHeureReserver() throws SQLException
 {
     	AccesBdd acces = new AccesBdd();
@@ -123,11 +158,11 @@ public String selectFrais(String destignation) throws SQLException
         return frais;
 }
 
-public void InsertionReservation(String username,String email,String contact,String date_voyage,String heure_depart,String numero_place,String destignation_reservation)throws SQLException
+public void InsertionReservation(String username,String email,String contact,String date_voyage,String heure_depart,String destignation_reservation)throws SQLException
 {
 	AccesBdd acces = new AccesBdd();
 	acces.loadDriver();
-	String sql = "INSERT Reservation(username,email,contact,date_voyage,heure_depart,numero_place,destignation_reservation) VALUES ('"+username+"','"+email+"','"+contact+"','"+date_voyage+"','"+heure_depart+"','"+numero_place+"','"+destignation_reservation+"');";
+	String sql = "INSERT Reservation(username,email,contact,date_voyage,heure_depart,destignation_reservation) VALUES ('"+username+"','"+email+"','"+contact+"','"+date_voyage+"','"+heure_depart+"','"+destignation_reservation+"');";
 	try {
 		int resultat =  acces.executeInsert(sql);
 	} catch (Exception e) {
@@ -182,6 +217,41 @@ public List<ReservationModele> listeReservation()throws SQLException
                     reservation.setUsername(resultat.getString("username"));
                     reservation.setEmail(resultat.getString("email"));
                     reservation.setContact(resultat.getString("contact"));
+                    reservation.setDate_voyage(resultat.getString("date_voyage"));
+                    reservation.setHeure_depart(resultat.getString("heure_depart"));
+                    reservation.setNumero_place(resultat.getString("numero_place"));
+                    reservation.setDestignation_reservation(resultat.getString("destignation_reservation"));
+                    
+                    list.add(reservation);
+                }
+             return list;
+        }
+public void DeleteReservation(String id)throws SQLException
+{
+	AccesBdd acces = new AccesBdd();
+	acces.loadDriver();
+	String sql = "DELETE FROM `reservation` WHERE idReservation='"+id+"';";
+	try {
+		int resultat =  acces.executeInsert(sql);
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println(e.getMessage());
+	}
+	
+	acces.closeConnection();
+}
+
+public List<ReservationModele> listeReservationClient(String login)throws SQLException
+	{
+                List<ReservationModele> list = new ArrayList<ReservationModele>();
+		AccesBdd  acces = new AccesBdd();
+		acces.loadDriver();
+		String sql = "SELECT username,date_voyage,heure_depart,numero_place,destignation_reservation FROM reservation WHERE username='"+login+"'";
+		ResultSet resultat = acces.executeSelect(sql);
+		while(resultat.next())
+                {   
+                    ReservationModele reservation = new ReservationModele();
+                    reservation.setUsername(resultat.getString("username"));
                     reservation.setDate_voyage(resultat.getString("date_voyage"));
                     reservation.setHeure_depart(resultat.getString("heure_depart"));
                     reservation.setNumero_place(resultat.getString("numero_place"));

@@ -67,11 +67,11 @@ public int compterPlace(String date,String heure,String destignation) throws SQL
         }
         return total;
 }
-public int compterPlaceDisponible(String date,String heure) throws SQLException
+public int compterPlaceDisponible(String date,String heure,String destignation) throws SQLException
 {
     	AccesBdd acces = new AccesBdd();
 	acces.loadDriver();
-        String sql = "select * from place_final where date_voyage='"+date+"' and heure_voyage_place='"+heure+"' and statut='None';";
+        String sql = "select * from place_final where date_voyage='"+date+"' and heure_voyage_place='"+heure+"' and statut='None' and destignationPlace='"+destignation+"';";
         ResultSet resultat=acces.executeSelect(sql);
         int total_dispo = 0;
         while(resultat.next())
@@ -80,11 +80,11 @@ public int compterPlaceDisponible(String date,String heure) throws SQLException
         }
         return total_dispo;
 }
-public void InsertionPlaceClient(String place)throws SQLException
+public void InsertionPlaceClient(String place, String username)throws SQLException
 {
 	AccesBdd acces = new AccesBdd();
 	acces.loadDriver();
-	String sql = "INSERT INTO clientplace(clientPlace) VALUES ('"+place+"');";
+	String sql = "INSERT INTO clientplace(clientPlace,usernameClient) VALUES ('"+place+"','"+username+"');";
 	try {
 		int resultat =  acces.executeInsert(sql);
 	} catch (Exception e) {
@@ -94,6 +94,7 @@ public void InsertionPlaceClient(String place)throws SQLException
 	
 	acces.closeConnection();
 }
+
 
 
    

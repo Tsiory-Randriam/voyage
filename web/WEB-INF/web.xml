@@ -68,6 +68,18 @@
         <servlet-name>DeconnexionServlet</servlet-name>
         <servlet-class>servlet.DeconnexionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteReservation</servlet-name>
+        <servlet-class>servlet.DeleteReservation</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConnexionServlet</servlet-name>
+        <servlet-class>servlet.ConnexionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListeReservationServlet</servlet-name>
+        <servlet-class>servlet.ListeReservationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PlaceServlet</servlet-name>
         <url-pattern>/PlaceServlet</url-pattern>
@@ -135,6 +147,18 @@
     <servlet-mapping>
         <servlet-name>DeconnexionServlet</servlet-name>
         <url-pattern>/DeconnexionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteReservation</servlet-name>
+        <url-pattern>/DeleteReservation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConnexionServlet</servlet-name>
+        <url-pattern>/ConnexionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListeReservationServlet</servlet-name>
+        <url-pattern>/ListeReservationServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
