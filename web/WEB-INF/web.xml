@@ -80,6 +80,10 @@
         <servlet-name>ListeReservationServlet</servlet-name>
         <servlet-class>servlet.ListeReservationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RecuServlet</servlet-name>
+        <servlet-class>servlet.RecuServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PlaceServlet</servlet-name>
         <url-pattern>/PlaceServlet</url-pattern>
@@ -159,6 +163,10 @@
     <servlet-mapping>
         <servlet-name>ListeReservationServlet</servlet-name>
         <url-pattern>/ListeReservationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecuServlet</servlet-name>
+        <url-pattern>/RecuServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
