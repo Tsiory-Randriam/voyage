@@ -11,7 +11,7 @@
 <%@page import="dao.TestePlaceDao"%>
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ include file='HeaderClient.jsp' %>
+<%@ include file='header.jsp' %>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -88,7 +88,7 @@
                     <input type="text" name="destignation" value="<%= destignation %>" readonly>
                 </div>
                 <div class="input-group">
-                    <label>Frais (Ar)</label>
+                    <label>Frais (Ar)/ Place</label>
                     <input type="text" name="frais" value="<%= frais %>" readonly>
                 </div>
                 <div class="input-group">

@@ -44,9 +44,9 @@
 
               <!-- Lien Accueil -->
               <li class="nav-item">
-                <a class="nav-link" href="ListeReservationServlet">
+                <a class="nav-link" href="DeconnexionServlet">
                   <i class="fa fa-lock" style="color:#8e44ad;width:20px;text-align:center;"></i>
-                  <span> Mes Réservation </span>
+                  <span> Deconnexion </span>
                 </a>
               </li>
 

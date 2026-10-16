@@ -17,6 +17,22 @@ import models.VoyageModele;
  * @author SUKUNA
  */
 public class DestignationDao {
+    
+public void viderDestignation()throws SQLException
+{
+	AccesBdd acces = new AccesBdd();
+	acces.loadDriver();
+	String sql = "truncate destignationclient;";
+	try {
+		int resultat =  acces.executeInsert(sql);
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println(e.getMessage());
+	}
+	
+	acces.closeConnection();
+}
+   
     public List<VoyageModele> selectionDestignation()throws SQLException
 	{
                 List<VoyageModele> listeDestignation = new ArrayList<VoyageModele>();

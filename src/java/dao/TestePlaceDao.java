@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import models.ClientPlaceModele;
 import models.PlaceModele;
 
 /**
@@ -16,6 +17,21 @@ import models.PlaceModele;
  * @author SUKUNA
  */
 public class TestePlaceDao {
+    
+    public void viderPlace()throws SQLException
+{
+	AccesBdd acces = new AccesBdd();
+	acces.loadDriver();
+	String sql = "truncate clientplace;";
+	try {
+		int resultat =  acces.executeInsert(sql);
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println(e.getMessage());
+	}
+	
+	acces.closeConnection();
+}
 public List<PlaceModele> selectionPlace(String heure,String Date,String destignation)throws SQLException
 	{
                 List<PlaceModele> list = new ArrayList<PlaceModele>();
@@ -96,6 +112,35 @@ public void InsertionPlaceClient(String place, String username)throws SQLExcepti
 }
 
 
+public int compterPlaceReserver(){
+    AccesBdd acces = new AccesBdd();
+    acces.loadDriver();
+    String sql = "SELECT clientPlace from clientplace";
+    ResultSet resultat = acces.executeSelect(sql);
+    int number = 0;
+        try {
+            while(resultat.next()) {
+                number = number + 1;
+            }   } catch (SQLException ex) {
+            System.getLogger(TestePlaceDao.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+    return number;
+}
 
+public List<ClientPlaceModele> clientPlace()throws SQLException
+	{
+                List<ClientPlaceModele> list = new ArrayList<ClientPlaceModele>();
+		AccesBdd  acces = new AccesBdd();
+		acces.loadDriver();
+		String sql = "SELECT clientPlace FROM clientplace";
+		ResultSet resultat = acces.executeSelect(sql);
+		while(resultat.next())
+                {
+                    ClientPlaceModele place= new ClientPlaceModele();
+                        place.setClientPlace(resultat.getString("clientPlace"));
+                    list.add(place);
+                }
+             return list;
+        }
    
 }

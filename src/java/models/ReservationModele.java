@@ -9,7 +9,7 @@ package models;
  * @author SUKUNA
  */
 public class ReservationModele {
-    private int idReservation;
+private int idReservation;
 private String username;
 private String email;
 private String contact;
@@ -17,6 +17,13 @@ private String date_voyage;
 private String heure_depart;
 private String numero_place;
 private String destignation_reservation;
+private String frais_reservation;
+public String getFrais_reservation() {
+	return frais_reservation;
+}
+public void setFrais_reservation(String frais_reservation) {
+	this.frais_reservation = frais_reservation;
+}
 public int getIdReservation() {
 	return idReservation;
 }

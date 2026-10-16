@@ -3,12 +3,15 @@
     Created on : 26 sept. 2026, 18:34:15
     Author     : SUKUNA
 --%>
+<%@page import="dao.TestePlaceDao"%>
 <%@page import="models.ClientPlaceModele"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.ClientDao"%>
 <%@page import="dao.ReservationDao"%>
 <%
+        TestePlaceDao place = new TestePlaceDao();
+        int nombre = place.compterPlaceReserver();
         ReservationDao reservation = new ReservationDao();
         ClientDao client = new ClientDao();
         int placeReserver = reservation.DernierPlaceReserver();
@@ -18,6 +21,7 @@
         int idDestignation = reservation.DernieridDestignation();
         String destignation = reservation.dernierDestignation(idDestignation);
         String frais = reservation.selectFrais(destignation);
+        int frais_final = Integer.parseInt(frais) * nombre;
         String username = client.nomClient(idClient);
         String email = client.emailClient(idClient);
         String contact = client.contactClient(idClient);
@@ -93,7 +97,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Frais Total</label>
-                                <input type='text' class='form-control price-highlight' value='<%= frais %> Ar' disabled>
+                                <input type='text' class='form-control price-highlight' value='<%= frais_final %> Ar' disabled>
                             </div>
                         </div>
                     </div>

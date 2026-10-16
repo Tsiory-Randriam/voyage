@@ -17,6 +17,21 @@ import models.HeureModele;
  * @author SUKUNA
  */
 public class DateDao {
+    
+public void viderDate()throws SQLException
+{
+	AccesBdd acces = new AccesBdd();
+	acces.loadDriver();
+	String sql = "truncate date;";
+	try {
+		int resultat =  acces.executeInsert(sql);
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println(e.getMessage());
+	}
+	
+	acces.closeConnection();
+}
 public List<DateModele> selectionDate()throws SQLException
 	{
                 List<DateModele> listeDate = new ArrayList<DateModele>();

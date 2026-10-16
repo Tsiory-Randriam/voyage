@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 12 oct. 2026 à 19:19
+-- Généré le : ven. 16 oct. 2026 à 14:04
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.0.30
 
@@ -52,17 +52,6 @@ CREATE TABLE `client` (
   `idClient` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `client`
---
-
-INSERT INTO `client` (`nom`, `email`, `contact`, `idClient`) VALUES
-('Mickael', 'mik@gmail.com', '0332505705', 1),
-('feno', 'feno@gmail.com', '0332505705', 2),
-('Mickael', 'mik@gmail.com', '0332505705', 3),
-('Mickael', 'mik@gmail.com', '0332505705', 4),
-('Mickael', 'mik@gmail.com', '0332505705', 5);
-
 -- --------------------------------------------------------
 
 --
@@ -75,15 +64,6 @@ CREATE TABLE `clientplace` (
   `usernameClient` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `clientplace`
---
-
-INSERT INTO `clientplace` (`idClientPlace`, `clientPlace`, `usernameClient`) VALUES
-(1, '2', 'Mickael'),
-(2, '3', 'Mickael'),
-(3, '4', 'Mickael');
-
 -- --------------------------------------------------------
 
 --
@@ -94,21 +74,6 @@ CREATE TABLE `date` (
   `date` date NOT NULL,
   `idDateReservation` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `date`
---
-
-INSERT INTO `date` (`date`, `idDateReservation`) VALUES
-('2026-10-06', 1),
-('2026-10-06', 2),
-('2026-10-09', 3),
-('2026-10-09', 4),
-('2026-10-09', 5),
-('2026-10-09', 6),
-('2026-10-09', 7),
-('2026-10-09', 8),
-('2026-10-09', 9);
 
 -- --------------------------------------------------------
 
@@ -130,7 +95,8 @@ INSERT INTO `destignation` (`destignation`, `frais_voyage`) VALUES
 ('Sainte Marie', 50000),
 ('Toliara', 80000),
 ('Fianarantsoa', 40000),
-('Antsiranana', 50000);
+('Antsiranana', 50000),
+('Mahajanga', 75000);
 
 -- --------------------------------------------------------
 
@@ -143,20 +109,16 @@ CREATE TABLE `destignationclient` (
   `destignation` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Déchargement des données de la table `destignationclient`
+-- Structure de la table `frais_voyage`
 --
 
-INSERT INTO `destignationclient` (`idDestignation`, `destignation`) VALUES
-(1, 'Antananarivo'),
-(2, 'Antananarivo'),
-(3, 'Antananarivo'),
-(4, 'Antananarivo'),
-(5, 'Antananarivo'),
-(6, 'Antananarivo'),
-(7, 'Antananarivo'),
-(8, 'Antananarivo'),
-(9, 'Antananarivo');
+CREATE TABLE `frais_voyage` (
+  `idFrais` int(11) NOT NULL,
+  `frais_reservation` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -187,21 +149,6 @@ CREATE TABLE `heurereservation` (
   `idHeureReservation` int(11) NOT NULL,
   `heureReservation` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `heurereservation`
---
-
-INSERT INTO `heurereservation` (`idHeureReservation`, `heureReservation`) VALUES
-(1, '08 h'),
-(2, '08 h'),
-(3, '08 h'),
-(4, '08 h'),
-(5, '08 h'),
-(6, '08 h'),
-(7, '08 h'),
-(8, '08 h'),
-(9, '08 h');
 
 -- --------------------------------------------------------
 
@@ -291,7 +238,103 @@ INSERT INTO `place_final` (`Numero_place`, `statut`, `heure_voyage_place`, `date
 (21, 'None', '08 h', '2026-10-09', 'Antananarivo', NULL),
 (22, 'None', '08 h', '2026-10-09', 'Antananarivo', NULL),
 (23, 'None', '08 h', '2026-10-09', 'Antananarivo', NULL),
-(24, 'None', '08 h', '2026-10-09', 'Antananarivo', NULL);
+(24, 'None', '08 h', '2026-10-09', 'Antananarivo', NULL),
+(1, 'Disabled', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(2, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(3, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(4, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(5, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(6, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(7, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(8, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(9, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(10, 'Disabled', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(11, 'Disabled', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(12, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(13, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(14, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(15, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(16, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(17, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(18, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(19, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(20, 'None', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(21, 'Disabled', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(22, 'Disabled', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(23, 'Disabled', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(24, 'Disabled', '08 h', '2026-10-14', 'Antananarivo', NULL),
+(1, 'Disabled', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(2, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(3, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(4, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(5, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(6, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(7, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(8, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(9, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(10, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(11, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(12, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(13, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(14, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(15, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(16, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(17, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(18, 'None', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(19, 'Disabled', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(20, 'Disabled', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(21, 'Disabled', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(22, 'Disabled', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(23, 'Disabled', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(24, 'Disabled', '08 h', '2026-10-15', 'Antananarivo', NULL),
+(1, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(2, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(3, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(4, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(5, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(6, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(7, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(8, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(9, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(10, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(11, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(12, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(13, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(14, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(15, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(16, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(17, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(18, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(19, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(20, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(21, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(22, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(23, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(24, 'Disabled', '08 h', '2026-10-16', 'Antananarivo', NULL),
+(1, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(2, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(3, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(4, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(5, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(6, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(7, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(8, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(9, 'None', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(10, 'None', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(11, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(12, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(13, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(14, 'None', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(15, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(16, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(17, 'None', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(18, 'None', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(19, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(20, 'None', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(21, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(22, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(23, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL),
+(24, 'Disabled', '08 h', '2026-10-16', 'Mahajanga', NULL);
 
 -- --------------------------------------------------------
 
@@ -307,15 +350,20 @@ CREATE TABLE `reservation` (
   `date_voyage` date NOT NULL,
   `heure_depart` varchar(45) NOT NULL,
   `numero_place` varchar(45) NOT NULL,
-  `destignation_reservation` varchar(45) NOT NULL
+  `destignation_reservation` varchar(45) NOT NULL,
+  `frais` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `reservation`
 --
 
-INSERT INTO `reservation` (`idReservation`, `username`, `email`, `contact`, `date_voyage`, `heure_depart`, `numero_place`, `destignation_reservation`) VALUES
-(1, 'Mickael', 'mik@gmail.com', '0332505705', '2026-10-09', '08 h', '', 'Antananarivo');
+INSERT INTO `reservation` (`idReservation`, `username`, `email`, `contact`, `date_voyage`, `heure_depart`, `numero_place`, `destignation_reservation`, `frais`) VALUES
+(1, 'Tsiory', 'randriamampiononatsiory@gmail.com', '0332505705', '2026-10-16', '08 h', '[22, 23, 24]', 'Mahajanga', 225000),
+(2, 'JohnDoe', 'randriamampiononatsiory@gmail.com', '0332505705', '2026-10-16', '08 h', '[3, 4]', 'Mahajanga', 150000),
+(3, 'JohnDoe', 'randriamampiononatsiory@gmail.com', '0332505705', '2026-10-16', '08 h', '[6, 7]', 'Mahajanga', 150000),
+(4, 'JohnDoe', 'randriamampiononatsiory@gmail.com', '0332505705', '2026-10-16', '08 h', '[8, 12]', 'Mahajanga', 150000),
+(5, 'Tsiory', 'randriamampiononatsiory@gmail.com', '0332505705', '2026-10-16', '08 h', '[15, 21, 21]', 'Mahajanga', 225000);
 
 -- --------------------------------------------------------
 
@@ -419,6 +467,12 @@ ALTER TABLE `destignationclient`
   ADD PRIMARY KEY (`idDestignation`);
 
 --
+-- Index pour la table `frais_voyage`
+--
+ALTER TABLE `frais_voyage`
+  ADD PRIMARY KEY (`idFrais`);
+
+--
 -- Index pour la table `heurereservation`
 --
 ALTER TABLE `heurereservation`
@@ -450,37 +504,43 @@ ALTER TABLE `voyager`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `idClient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idClient` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `clientplace`
 --
 ALTER TABLE `clientplace`
-  MODIFY `idClientPlace` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idClientPlace` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `date`
 --
 ALTER TABLE `date`
-  MODIFY `idDateReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idDateReservation` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `destignationclient`
 --
 ALTER TABLE `destignationclient`
-  MODIFY `idDestignation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idDestignation` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `frais_voyage`
+--
+ALTER TABLE `frais_voyage`
+  MODIFY `idFrais` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `heurereservation`
 --
 ALTER TABLE `heurereservation`
-  MODIFY `idHeureReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idHeureReservation` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `idReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idReservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `voyager`

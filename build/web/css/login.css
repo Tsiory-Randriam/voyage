@@ -1,0 +1,123 @@
+/* css/login.css - Design Moderne & Épuré pour la Connexion Admin */
+
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f8fafc;
+    --card-bg: var(--card, #ffffff);
+    --text-color: var(--text, #1e293b);
+    --border-color: #cbd5e1;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+}
+
+/* Section centrale */
+.login-section {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Carte de connexion */
+.login-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    padding: 35px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-header p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Champs du formulaire */
+.mb-3 {
+    margin-bottom: 20px;
+}
+
+.mb-3 label.form-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.mb-3 label.form-label i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.mb-3 input.form-control {
+    width: 100%;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.mb-3 input.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Bouton de connexion */
+.login-footer {
+    margin-top: 25px;
+}
+
+.login-footer .btn-primary {
+    background: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 13px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.login-footer .btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}

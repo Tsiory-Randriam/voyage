@@ -17,6 +17,22 @@ import models.PlaceModele;
  * @author SUKUNA
  */
 public class HeureDao {
+    
+    public void viderHeure()throws SQLException
+{
+	AccesBdd acces = new AccesBdd();
+	acces.loadDriver();
+	String sql = "truncate heurereservation;";
+	try {
+		int resultat =  acces.executeInsert(sql);
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println(e.getMessage());
+	}
+	
+	acces.closeConnection();
+}
+    
 public List<HeureModele> selectionHeure()throws SQLException
 	{
                 List<HeureModele> listeHeure = new ArrayList<HeureModele>();

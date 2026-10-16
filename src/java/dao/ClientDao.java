@@ -26,7 +26,23 @@ public void InsertionClient(String nom,String email,String contact)throws SQLExc
 	}
 	
 	acces.closeConnection();
-}   
+}
+
+public void viderClient()throws SQLException
+{
+	AccesBdd acces = new AccesBdd();
+	acces.loadDriver();
+	String sql = "truncate client;";
+	try {
+		int resultat =  acces.executeInsert(sql);
+	} catch (Exception e) {
+		// TODO: handle exception
+		System.out.println(e.getMessage());
+	}
+	
+	acces.closeConnection();
+}
+
 public int DernierReservation() throws SQLException
 {
     	AccesBdd acces = new AccesBdd();
